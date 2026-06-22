@@ -1,0 +1,154 @@
+<!-- Dynamic SEO Titles and Descriptions for Store Categories -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // 1. Define your category URLs, custom Titles, and Descriptions here
+  const seoMapping = {
+    "/shopall": {
+      title: "Kid Clothes, Baby Clothes & Bedding And Post-Partum Care Essentials | Lillow Baby",
+      description: "Explore our collection of kid and baby clothes, baby bedding and pregnancy and post partum care for mums"
+    },
+    "/shopall/sale": {
+      title: "On Special | Lillow Baby",
+      description: "Nab yourself a bargain from our collection of on-sale products"
+    },
+    "/shopall/new-arrivals": {
+      title: "New Arrivals At Our Store | Lillow Baby",
+      description: "Discover the latest arrivals in our store."
+    },
+    "/shopall/pregnancy-and-beyond": {
+      title: "Pregnancy, Post-Partum & Skincare Essentials | Lillow Baby",
+      description: "Look after your body with our pregnancy, post-partum, and skincare essentials."
+    },
+    "/shopall/pregnancy-and-beyond/breastfeeding": {
+      title: "Breastfeeding Essentials For New Mums | Lillow Baby",
+      description: "Shop our breastfeeding essentials for new mums."
+    },
+    "/shopall/pregnancy-and-beyond/post-partum": {
+      title: "Post Partum Essentials For New Mums | Lillow Baby",
+      description: "Shop our post-partum essentials for new mums."
+    },
+    "/shopall/pregnancy-and-beyond/skin-essential": {
+      title: "Skincare Products For New Mums | Lillow Baby",
+      description: "Shop our range of skincare products for new mums."
+    },
+    "/shopall/baby-essentials": {
+      title: "New Baby Essentials | Lillow Baby",
+      description: "Discover our range of essential products for your new baby."
+    },
+    "/shopall/baby-essentials/accessories": {
+      title: "New Baby Accessories | Lillow Baby",
+      description: "Accessorise your little ones with our range of baby accessories."
+    },
+    "/shopall/baby-essentials/swaddlewrap": {
+      title: "Swaddle Wraps For Babies | Lillow Baby",
+      description: "Keep your baby warm and secure with our range of stylish swaddle wraps."
+    },
+    "/shopall/baby-essentials/dummies": {
+      title: "Dummies & Soothers For Babies | Lillow Baby",
+      description: "Keep your baby calm and content with our range of dummies and soothers."
+    },
+    "/shopall/baby-essentials/skin-care": {
+      title: "Skin Care For Babies | Lillow Baby",
+      description: "Keep your little one's skin healthy with our range of skin care products."
+    },
+    "/shopall/baby-essentials/teethers": {
+      title: "Teethers For Babies | Lillow Baby",
+      description: "Keep your baby's teeth healthy and happy with our range of teethers."
+    },
+    "/shopall/baby-essentials/bassinetcot-bedding": {
+      title: "Bassinet & Cot Bedding For Babies | Lillow Baby",
+      description: "Keep your baby extra comfy with our range of bassinet and cot bedding."
+    },
+    "/shopall/baby-essentials/bassinetcot-blankets": {
+      title: "Bassinet & Cot Blankets For Babies | Lillow Baby",
+      description: "Keep your baby warm and cozy with our range of bassinet and cot blankets."
+    },
+    "/shopall/kids": {
+      title: "Kids Clothes For 2 To 9 Year Olds | Lillow Baby",
+      description: "Shop our range of kids clothes for 2 to 9 year olds."
+    },
+    "/shopall/kids/shortpants": {
+      title: "Shorts & Pants For Kids 2 To 9 Years | Lillow Baby",
+      description: "Shop our range of shorts and pants for kids 2 to 9 years old."
+    },
+    "/shopall/kids/tee-shirts": {
+      title: "T-Shirts For Kids 2 To 9 Years | Lillow Baby",
+      description: "Shop our range of t-shirts for kids 2 to 9 years old."
+    },
+    "/shopall/kids/dresses": {
+      title: "Dresses For Kids 2 To 9 Years | Lillow Baby",
+      description: "Shop our range of dresses for kids 2 to 9 years old."
+    },
+    "/shopall/kids/jumpers-jackets": {
+      title: "Jumpers & Jackets For Kids 2 To 9 Years | Lillow Baby",
+      description: "Shop our range of jumpers and jackets for kids 2 to 9 years old."
+    },
+    "/shopall/kids/overalls": {
+      title: "Overalls For Kids 2 To 9 Years | Lillow Baby",
+      description: "Shop our range of overalls for kids 2 to 9 years old."
+    },
+    "/shopall/kids/sets": {
+      title: "Clothing Sets For Kids 2 To 9 Years | Lillow Baby",
+      description: "Shop our range of clothing sets for kids 2 to 9 years old."
+    },
+    "/shopall/baby/bodysuit": {
+      title: "Bodysuits For Babies | Lillow Baby",
+      description: "Keep your baby warm and cozy with our range of bodysuits for babies upto 24 months."
+    },
+    "/shopall/baby/beanies-topnots": {
+      title: "Beanies & Topnots For Babies | Lillow Baby",
+      description: "Keep your baby warm and cozy with our range of beanies and topnots for babies upto 24 months."
+    },
+    "/shopall/baby/knit-set": {
+      title: "Knit Sets For Babies | Lillow Baby",
+      description: "Keep your baby warm and cozy with our range of knit sets for babies upto 24 months."
+    },
+    "/shopall/baby/jumpers": {
+      title: "Jumpers For Babies | Lillow Baby",
+      description: "Keep your baby warm and cozy with our range of jumpers for babies upto 24 months."
+    },
+    "/shopall/baby/sets": {
+      title: "Little Clothing Sets For Babies | Lillow Baby",
+      description: "Shop our range of little clothing sets for babies upto 24 months."
+    },
+    "/shopall/baby/overalls": {
+      title: "Baby Overalls | Lillow Baby",
+      description: "Shop our range of baby overalls for babies upto 24 months."
+    },
+    "/shopall/baby/rompers": {
+      title: "Baby Rompers | Lillow Baby",
+      description: "Shop our range of baby rompers for babies upto 24 months."
+    }
+  };
+
+  // 2. Grab the current page's URL path
+  const currentPath = window.location.pathname;
+
+  // 3. If the current URL matches one of our defined categories, update the SEO tags
+  if (seoMapping[currentPath]) {
+    const customSEO = seoMapping[currentPath];
+
+    // Update the Browser / Tab Title
+    if (customSEO.title) {
+      document.title = customSEO.title;
+    }
+
+    // Update the Meta Description
+    if (customSEO.description) {
+      let metaDescription = document.querySelector('meta[name="description"]');
+      
+      if (metaDescription) {
+        // If the tag exists, update it
+        metaDescription.setAttribute("content", customSEO.description);
+      } else {
+        // If the tag doesn't exist, create it and inject it into the head
+        metaDescription = document.createElement('meta');
+        metaDescription.name = "description";
+        metaDescription.content = customSEO.description;
+        document.head.appendChild(metaDescription);
+      }
+    }
+  }
+});
+</script>
+
